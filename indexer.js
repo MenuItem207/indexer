@@ -20,8 +20,6 @@ async function main() {
         console.log('This feature isn\'t supported yet\nbye')
 
     } else {
-        let headerIndex = parseInt(headerIndex);
-
         let user_input = await input('\nEnter english translation: ');
         let user_input_key = TextProcessor.toKey(user_input);
 
@@ -38,7 +36,7 @@ async function main() {
             }
         }
 
-        let lines = TextProcessor.getLinesToInsert(headers[headerIndex].header, arr_text); // get specific indexes to insert in
+        let lines = TextProcessor.getLinesToInsert(headers[parseInt(headerIndex)].header, arr_text); // get specific indexes to insert in
         let text_to_insert = '      ' + user_input_key + ': \'' + user_input + '\',';
         let text_to_insert_other_language = text_to_insert + ' // TODO: update translations'
 
