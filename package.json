@@ -1,0 +1,12 @@
+{
+  "name": "indexer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node indexer"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
