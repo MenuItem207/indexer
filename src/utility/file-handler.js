@@ -4,7 +4,7 @@ const fs = require('fs');
  * handles interfacing (reading / writing) of file
  */
 class FileHandler {
-    static PATH = 'C://Users/admin/Documents/work/repo/src/index.js';
+    static PATH = 'C://Users/admin/Documents/work/repo/src/index.js'; // TODO: update path
 
     /**
      * @returns {String} plaintext of index.js 
