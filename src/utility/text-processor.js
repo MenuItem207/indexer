@@ -113,6 +113,72 @@ class TextProcessor {
     static toKey(text) {
         return text.toLowerCase().replaceAll(' ', '_');
     }
+
+    /**
+     * a line might be something like
+     * abc: "pure string",
+     * this function returns 'pure string'
+     * 
+     * @param {String} text
+     */
+    static getPureString(text) {
+        let string = text.split(": ")[1];
+        return string.slice(1, -2); // remove first character: " and last 2 characters: ",
+    }
+
+    /**
+     * a line might be something like
+     * abc: "pure string",
+     * this function returns 'abc'
+     * 
+     * @param {String} text
+     */
+    static getPureStringHeader(text) {
+        let string = text.split(": ")[0];
+        return string.trim();
+    }
+
+    /**
+     * iterates through array text to find matching keywords
+     * 
+     * @param {Array} array_text 
+     * @param {String} search_text 
+     */
+    static findMatch(array_text, search_text) {
+        // find lines that includes search text
+        let matches = [];
+        array_text.forEach(
+            (text, index) => {
+                if (text.includes(search_text)) {
+                    // calculate match %
+                    let percentage = search_text.length / text.length;
+
+                    matches.push({
+                        index: matches.length,
+                        data: TextProcessor.getPureString(text),
+                        header: TextProcessor.getPureStringHeader(text),
+                        percentage: percentage,
+                        line: index
+                    });
+                }
+            }
+        );
+
+        // sort matches in descending order
+        return matches.sort(
+            (a, b) => {
+                if (a.percentage > b.percentage) {
+                    return -1;
+                }
+
+                if (a.percentage < b.percentage) {
+                    return 1;
+                }
+
+                return 0;
+            }
+        );
+    }
 }
 
 /**
