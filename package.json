@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node indexer"
+    "start": "node indexer-v2"
   },
   "keywords": [],
   "author": "",
