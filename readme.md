@@ -29,5 +29,5 @@ npm start
 ## Legacy
 To convert a javascript object into the relevant json file, you need to update the env.js file and run
 ```bash
-npm start merge-legacy
+npm start migrate-legacy
 ```
