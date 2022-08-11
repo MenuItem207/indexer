@@ -1,6 +1,7 @@
 const fs = require('fs');
 const { READ_PATH_TO_INDEXJS, WRITE_PATH_TO_INDEXJS } = require('../../env');
 
+// paths for translations file
 let read_src_path = READ_PATH_TO_INDEXJS.replace('/index.js', '/translations.json');
 let write_src_path = WRITE_PATH_TO_INDEXJS.replace('/index.js', '/translations.json');
 let json = {};
