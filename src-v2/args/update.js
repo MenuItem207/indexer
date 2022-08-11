@@ -8,6 +8,12 @@ const TextProcessor = require("../utility/text-processor");
 async function update(argv) {
     let todoPaths = TextProcessor.listTODOPaths();
     console.log('There are ' + todoPaths.length + ' pending translations');
+
+    // don't do anything if there are no pending translations
+    if (todoPaths.length === 0) {
+        return;
+    }
+
     let index = 0;
     todoPaths.forEach(
         (path) => {
