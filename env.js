@@ -1,7 +1,7 @@
 /**
  * absolute / relative path to index.js file
  */
-const PATH_TO_INDEXJS = '.././src/index.js';
+const PATH_TO_INDEXJS = '../../../src/index.js';
 
 /**
  * legacy window.translations object
