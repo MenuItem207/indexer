@@ -26,6 +26,6 @@ switch (arg_one) {
         migrateLegacy();
         break;
     default:
-        console.log('You didn\'t pass in any arguments. Try running \'npm start\' with some of these:\nadd - add a new translation\nfind - find existing translations\nupdate - update translations\nmigrate-legacy - convert legacy obj to json');
+        console.log('You didn\'t pass in any arguments. Try running \'npm start\' with some of these:\n\nadd            - add a new translation | i.e npm start add \"new translation\"\n\nfind           - find existing translations\n\nupdate         - update translations | i.e npm start update\n\nmigrate-legacy - convert legacy obj to json (check readme) | i.e npm start migrate-legacy\n');
         break;
 }
