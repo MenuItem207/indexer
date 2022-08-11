@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const { PATH_TO_INDEXJS, legacy_obj } = require('../../env');
+const { WRITE_PATH_TO_INDEXJS, legacy_obj } = require('../../env');
 
 
 /**
@@ -25,7 +25,7 @@ class LegacyMigrator {
      * writes file
      */
     static writeFile(json) {
-        let file_path = PATH_TO_INDEXJS.replace('/index.js', '/translations.json');
+        let file_path = WRITE_PATH_TO_INDEXJS.replace('/index.js', '/translations.json');
         fs.writeFile(file_path, json, () => { });
     }
 }

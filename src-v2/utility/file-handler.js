@@ -1,8 +1,14 @@
 const fs = require('fs');
-const { PATH_TO_INDEXJS } = require('../../env');
+const { READ_PATH_TO_INDEXJS, WRITE_PATH_TO_INDEXJS } = require('../../env');
 
-let src_path = PATH_TO_INDEXJS.replace('/index.js', '/translations.json');
-const json = require(src_path);
+let read_src_path = READ_PATH_TO_INDEXJS.replace('/index.js', '/translations.json');
+let write_src_path = WRITE_PATH_TO_INDEXJS.replace('/index.js', '/translations.json');
+let json = {};
+try {
+    json = require(read_src_path);
+} catch (err) {
+    console.log('Translation file not created yet!');
+}
 
 /**
  * handles the interfacing of the translations json file 
@@ -31,7 +37,7 @@ class FileHandler {
     static updateFileWithNewObject(newObj) {
         try {
             let jsonString = JSON.stringify(newObj, null, "\t");
-            fs.writeFile(src_path, jsonString, () => { });
+            fs.writeFile(write_src_path, jsonString, () => { });
             return 'Updated file';
         } catch (err) {
             return 'Error updating file:\n' + err;

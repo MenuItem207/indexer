@@ -1,7 +1,9 @@
 /**
- * absolute / relative path to index.js file
+ *  relative path to index.js file
+ *  read and write paths are different because for some reason the write path doesn't work when importing the json
  */
-const PATH_TO_INDEXJS = '../../../src/index.js';
+const READ_PATH_TO_INDEXJS = '../../../src/index.js';
+const WRITE_PATH_TO_INDEXJS = READ_PATH_TO_INDEXJS.replace('../../../', '.././');
 
 /**
  * legacy window.translations object
@@ -11,4 +13,4 @@ const PATH_TO_INDEXJS = '../../../src/index.js';
  */
 const legacy_obj = undefined;
 
-module.exports = { PATH_TO_INDEXJS, legacy_obj };
+module.exports = { READ_PATH_TO_INDEXJS, WRITE_PATH_TO_INDEXJS, legacy_obj };
